@@ -1,0 +1,41 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fffefe;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .UserInfo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .NotificationIcon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  
+  .UserImagePlaceholder {
+    width: 40px; /* Adjust the size as needed */
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc; /* You can set a background color or use a gradient */
+    margin-left: 10px;
+  }
+  
+  .UserRole {
+    font-weight: bold;
+    font-size: 12px;
+    text-align: right;
+  }
+  
+  .user-role{
+    display: flex;
+    flex-direction: column;
+  }
