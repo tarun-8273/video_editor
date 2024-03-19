@@ -145,7 +145,7 @@ export default VideoPlayer;
 //       alert('Error trimming video.');
 //     }
 //   };
-//
+
 
 //   const handleDownload = () => {
 //     if (trimmedVideo) {
