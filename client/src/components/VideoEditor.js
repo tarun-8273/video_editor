@@ -101,3 +101,91 @@ const dropzoneStyle = {
 };
 
 export default VideoPlayer;
+
+
+// // client/src/components/VideoEditor.js
+// import React, { useState, useRef } from 'react';
+// import axios from 'axios';
+// import { VideoTrimmer } from 'react-video-trimmer';
+// import 'react-video-trimmer/dist/style.css';
+// import './VideoEditor.css';
+
+// const VideoEditor = () => {
+//   const [videoFile, setVideoFile] = useState(null);
+//   const [trimmedVideo, setTrimmedVideo] = useState(null);
+//   const videoRef = useRef(null);
+
+//   const handleFileChange = (file) => {
+//     setVideoFile(file);
+//     setTrimmedVideo(null);
+//     // Reset video playback
+//     if (videoRef.current) {
+//       videoRef.current.pause();
+//       videoRef.current.currentTime = 0;
+//     }
+//   };
+
+//   const handleTrim = async (startTime, endTime) => {
+//     try {
+//       const formData = new FormData();
+//       formData.append('video', videoFile);
+//       formData.append('startTime', startTime);
+//       formData.append('endTime', endTime);
+
+//       const response = await axios.post('http://localhost:3001/upload', formData);
+//       setTrimmedVideo(response.data);
+
+//       // Play the trimmed video
+//       if (videoRef.current) {
+//         videoRef.current.load(); // Ensure the video is reloaded
+//         videoRef.current.play();
+//       }
+//     } catch (error) {
+//       console.error('Error trimming video:', error);
+//       alert('Error trimming video.');
+//     }
+//   };
+
+//   const handleDownload = () => {
+//     if (trimmedVideo) {
+//       const downloadLink = document.createElement('a');
+//       const url = URL.createObjectURL(new Blob([trimmedVideo], { type: 'video/mp4' }));
+//       downloadLink.href = url;
+//       downloadLink.download = 'trimmed_video.mp4';
+//       document.body.appendChild(downloadLink);
+//       downloadLink.click();
+//       document.body.removeChild(downloadLink);
+//     }
+//   };
+
+//   return (
+//     <div className="VideoEditor">
+//       <div className="controls">
+//         <VideoTrimmer onChange={handleTrim} onFileChange={handleFileChange} />
+//         {videoFile && (
+//           <div>
+//             <p>Selected Video: {videoFile.name}</p>
+//             <video controls width="100%" ref={videoRef}>
+//               <source src={URL.createObjectURL(videoFile)} type="video/mp4" />
+//               Your browser does not support the video tag.
+//             </video>
+//           </div>
+//         )}
+//       </div>
+
+//       {trimmedVideo && (
+//         <div className="TrimmedVideoContainer">
+//           <p>Trimmed Video:</p>
+//           <video controls width="100%" ref={videoRef}>
+//             <source src={`data:video/mp4;base64,${trimmedVideo}`} type="video/mp4" />
+//             Your browser does not support the video tag.
+//           </video>
+//           <button className="download-btn" onClick={handleDownload}>Download Trimmed Video</button>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default VideoEditor;
+
